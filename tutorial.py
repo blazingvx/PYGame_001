@@ -9,7 +9,7 @@ pygame.init()
 pygame.display.set_caption("Game Mode On!!")
 
 WIDTH, HEIGHT = 1377, 768
-FPS = 120
+FPS = 60
 PLAYER_VEL = 10
 
 window = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -73,7 +73,7 @@ class Player(pygame.sprite.Sprite):
         self.hit_count = 0
 
     def jump(self):
-        self.y_vel = -self.GRAVITY * 8
+        self.y_vel = -self.GRAVITY * 10
         self.animation_count = 0
         self.jump_count += 1
         if self.jump_count == 1:
@@ -172,7 +172,7 @@ class Block(Object):
 
 
 class Fire(Object):
-    ANIMATION_DELAY = 3
+    ANIMATION_DELAY = 1
 
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height, "fire")
